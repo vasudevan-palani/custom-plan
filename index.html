@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="../../favicon.ico">
+      <title>My Plans</title>
+      <!-- Bootstrap core CSS -->
+      <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Bootstrap theme -->
+      <link href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="jqwidgets-4.0/jqwidgets/styles/jqx.base.css" />
+      <link rel="stylesheet" type="text/css" href="app.css" />
+      <!-- Custom styles for this template -->
+      <link href="theme.css" rel="stylesheet">
+      <script type="text/javascript" src="jqwidgets-4.0/scripts/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxcore.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxdata.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxdraw.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxgauge.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxbuttons.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxslider.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/scripts/demos.js"></script>
+      <script type="text/javascript" src="angular.min.js"></script>
+	  <script type="text/javascript" src="ngMask.min.js"></script>
+      <script type="text/javascript" src="sprintf.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+      <script type="text/javascript"></script>
+	  <style type="text/css">
+		  .css-form input.ng-invalid.ng-touched {
+			background-color: #FA787E;
+		  }
+
+		  .css-form input.ng-valid.ng-touched {
+			background-color: #78FA89;
+		  }
+		</style>
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body role="document" ng-app="app">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#"><img src="logo.png" width="120" height="30"></img></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+               </ul>
+            </div>
+            <!--/.nav-collapse -->
+         </div>
+      </nav>
+      <div class="container theme-showcase" role="main" ng-controller="GuageController" ng-init="init()">
+         <br/><br/><br/><br/>
+         <!-- Main jumbotron for a primary marketing message or call to action -->
+         <div class="jumbotron">
+            <h1>Customize your plan</h1>
+            <p>Here you can request your customized plan by selecting the units for Minutes, Text and Data. The appropriate charges are displayed for the selected units next to them.</p>
+         </div>
+         <div class="btn-group btn-group-justified">
+            <a href='' class='btn btn-lg btn-default' ng-class="{active:isSelectPlanForm()}">1. Select your plan</a>
+            <a href='' class='btn btn-lg btn-default' ng-class="{active:isPhoneForm()}">2. Phone Details</a>
+            <a href='' class='btn btn-lg btn-default' ng-class="{active:isCreditCardForm()}">3. Credit Card Details</a>
+			<a href='' class='btn btn-lg btn-default' ng-class="{active:isPaymentForm()}">4. Payment</a>
+            <a href='' class='btn btn-lg btn-default' ng-class="{active:isSummaryForm()}">5. Summary</a>
+         </div>
+         <span ng-show="isSelectPlanForm()">
+            <div class="page-header">
+               <h1>Select your plan</h1>
+            </div>
+            <div class="row">
+               <div class="col-lg-3">
+                  <div id='gauge'>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div id='gauge1'>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div id='gauge2'>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div>
+                     <h3><label>Charges : $ {{charges}}</label></h3>
+                  </div>
+                  <div>
+                     <label>Tax : $ {{tax}}</label>
+                  </div>
+                  <div>
+                     <label>Total : $ {{total}}</label>
+                  </div>
+               </div>
+            </div>
+            <!-- /container -->
+            <div class="row">
+               <div class="col-lg-3">
+                  <div id='slider' style="position: relative; top: 0px; left: 3px; width : 10px">
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div id='slider1' style="position: relative; top: 0px; left: 3px">
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div id='slider2' style="position: relative; top: 0px; left: 3px">
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div class="form-group">
+						 <button class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"> << Prev</button>
+						 <button class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()"> Next >></button>
+                  </div>
+               </div>
+            </div>
+            <!-- /container -->
+            <div class="row">
+               <div class="col-lg-3">
+                  <input type="text" ng-model="minuteValue"> Minute(s)
+               </div>
+               <div class="col-lg-3">
+                  <input type="text" ng-model="textValue"> Text(s)
+               </div>
+               <div class="col-lg-3">
+                  <input type="text" ng-model="dataValue"> GB(s)
+               </div>
+               <div class="col-lg-3">
+                  <div>
+                  </div>
+               </div>
+            </div>
+            <!-- /container -->
+         </span>
+		 <span ng-show="isPhoneForm()">
+            <div class="page-header">
+               <h1>Phone Details</h1>
+            </div>		 
+			<form>
+				<div class="row">
+					<ul class="nav nav-pills">
+					  <li ng-class="{active : isExistingCustomer()}"><a href="" ng-click="existingCustomer()">Existing Customer</a></li>
+					  <li ng-class="{active : isNewCustomer()}"><a href="" ng-click="newCustomer()">New Customer</a></li>
+					</ul>				
+				</div>
+				<br/><br/>
+				<div class="row panel panel-default panel-body" ng-show="isExistingCustomer()">
+					<div class="form-group">
+						<label>ESN</label/>
+						<input class="form-control" type="number" ng-model="esn" required/>
+					</div>
+				</div>
+				<div class="row panel panel-default panel-body" ng-show="isNewCustomer()">
+					<div class="form-group">
+						<label>ESN</label/>
+						<input class="form-control" type="text" ng-model="esn"  maxlength="15"/>
+					</div>
+					<div class="form-group">
+						<label>SIM</label/>
+						<input class="form-control" maxlength="20" type="text" ng-model="sim"/>
+					</div>
+					<div class="form-group">
+						<label>ZIP</label/>
+						<input class="form-control" type="text" ng-model="zip"/>
+					</div>
+				</div>
+
+				<div class="row">
+				   <div class="col-lg-3">
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  
+				
+				   </div>
+				   <div class="col-lg-3">
+					  
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  <div class="form-group">
+						 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"> << Prev</a>
+						 <a href='' class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()"> Next >></a>
+					  </div>
+				   </div>
+				</div>
+				
+			</form>
+		 </span>
+		 
+		 <span ng-show="isCreditCardForm()">
+            <div class="page-header">
+               <h1>Credit Card Details</h1>
+            </div>		 
+			<form>
+				<br/><br/>
+				<div class="row panel panel-default panel-body">
+					<div class="form-group">
+						<label>Credit Card Number</label/>
+						<input class="form-control" type="number" ng-model="ccNumber" required/>
+					</div>
+					<div class="form-group">
+						<label>Expiration</label/>
+						<input class="form-control" type="text" mask="99/99" ng-model="expiry" required placeholder="mm/yy"/>
+					</div>
+					<div class="form-group">
+						<label>CVC Code</label/>
+						<input class="form-control" type="number" mask="999" ng-model="cvc" required/>
+					</div>
+				</div>
+
+				<div class="row">
+				   <div class="col-lg-3">
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  
+				
+				   </div>
+				   <div class="col-lg-3">
+					  
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  <div class="form-group">
+						 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"> << Prev</a>
+						 <a href='' class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()"> Next >></a>
+					  </div>
+				   </div>
+				</div>
+				
+			</form>
+		 </span>
+		 
+		 <span ng-show="isPaymentForm()">
+            <div class="page-header">
+               <h1>Payment Summary</h1>
+            </div>		 
+				<br/><br/>
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Charges</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <h3><label>Unit Charges : $ {{charges}}</label></h3>
+							  </div>
+							  <div>
+								 <label>Tax : $ {{tax}}</label>
+							  </div>
+							  <div>
+								 <label>Total : $ {{total}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Phone Details</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <label>ESN : {{esn}}</label>
+							  </div>
+							  <div>
+								 <label>SIM : {{sim}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Credit card details</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <label>Credit card : {{ccNumber}}</label>
+							  </div>
+							  <div>
+								 <label>Expiry : {{expiry}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+				   <div class="col-lg-3">
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  
+				
+				   </div>
+				   <div class="col-lg-3">
+					  
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  <div class="form-group">
+						 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"> << Prev</a>
+						 <a href='' class="btn btn-lg btn-danger" ng-disabled="isNextDisabled()" ng-click="checkout()"> Checkout</a>
+					  </div>
+				   </div>
+				</div>
+
+		 </span>
+		 
+		 <span ng-show="isSummaryForm()">
+            <div class="page-header">
+               <h1>Transaction Summary</h1>
+            </div>		 
+			<form>
+				<br/><br/>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Transaction Details</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <h3><label>Transaction Id : 3249873248732487</label></h3>
+							  </div>
+							  <div>
+								 <label>Transaction date : {{curdate|date:'medium'}}</label>
+							  </div>
+							  <div>
+								 <label>Total : $ {{total}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>					
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Charges</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <h3><label>Unit Charges : $ {{charges}}</label></h3>
+							  </div>
+							  <div>
+								 <label>Tax : $ {{tax}}</label>
+							  </div>
+							  <div>
+								 <label>Total : $ {{total}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Phone Details</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <label>ESN : {{esn}}</label>
+							  </div>
+							  <div>
+								 <label>Sim : {{sim}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Credit card details</h3>
+							</div>
+							<div class="panel-body">
+							  <div>
+								 <label>Credit card : {{ccNumber}}</label>
+							  </div>
+							  <div>
+								 <label>Expiry : {{expiry}}</label>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+				   <div class="col-lg-3">
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  
+				
+				   </div>
+				   <div class="col-lg-3">
+					  
+					  
+				   </div>
+				   <div class="col-lg-3">
+					  <div class="form-group">
+					  </div>
+				   </div>
+				</div>
+				
+			</form>
+		 </span>
+      </div>
+      <br/>
+     <div class="row" style="padding-top:10px;background-color:#114580;color:#FFFFFF">
+      <div class="container">
+        <div class="col-lg-3" style="font-size:12px">
+        	<p style="font-size:14px">TracFone</p>
+        	<br/>
+        	Why TracFone<br/>
+        	Coverage<br/>
+
+        </div>
+        <div class="col-lg-3">
+        	<p style="font-size:14px">Phones</p>
+        	<br/>
+        	Browse All Phones<br/>
+        	Shop Phones<br/>
+        	Shop Bundles<br/>
+        </div>
+        <div class="col-lg-3">
+        	<p style="font-size:14px">Airtime</p>
+        	<br/>
+        	Pay As You Go<br/>
+        	Monthly Value Plans<br/>
+        	Buy Airtime From Phone<br/>
+        </div>
+      </div>
+    </div>
+      <!-- Bootstrap core JavaScript
+         ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+   </body>
+</html>

@@ -1,0 +1,604 @@
+/* @group Footer */
+
+	#footer .wrapper, .legal .wrapper {padding: 20px 0 15px 0;}
+	.legal .wrapper {padding-bottom: 35px;}
+	#footer {background: #0B2D50; color:#ffffff; margin-top: 20px;}
+	#footer a {color:#ffffff; text-decoration:none;}
+	#footer a:hover {text-decoration:underline;}
+	.links dl {text-shadow: 1px 1px 1px #000000;}
+	.links dl dt {
+		font-family: 'AllerReg','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		font-size:1.4em;
+		margin-bottom: 1.25em;
+		font-weight: normal;
+	}
+	.links dl dd{ font-size: 1.1em; padding:2px 0px; margin: 0;}
+	.social {
+		padding-top: 1em;
+	}
+	.social a {
+		display: block;
+		font-size: 1em;
+		font-weight: bold;
+		height: 22px;
+		text-transform: uppercase;
+		margin-bottom: .75em; padding: 8px 0 0 42px;
+	}
+	dd .facebook {background: url(/static/tracfone/assets/images/footer_social_sprite.png) 0 5px no-repeat;}
+	dd .twitter	{background: url(/static/tracfone/assets/images/footer_social_sprite.png) 0 -85px no-repeat;}
+	dd .forum {background: url(/static/tracfone/assets/images/footer_social_sprite.png) 0 -25px no-repeat;}
+	dd .youtube {background: url(/static/tracfone/assets/images/footer_social_sprite.png) 0 -55px no-repeat; }
+	dd .gplus {background: url(/static/tracfone/assets/images/footer_social_sprite.png) 0 -112px no-repeat; margin-bottom: 0;}
+
+	.legal a img {padding: 10px 0 0 0;}
+	.legal {background: #0a1f36; color: white;}
+	.legal p {color: white; font-size: 1.1em; line-height: 1.4em; text-shadow: 1px 2px 0px #000000;}
+	.legal .rights {font-size:.8em; line-height: 1.4em; letter-spacing: .05em;}
+	.legal ul {text-shadow: 1px 2px 0px #000000;}
+	.legal ul li { display:inline; padding-right:8px; text-transform:uppercase; font-weight:normal;}
+
+	.legal .span-7 {
+		padding-top: 14px;
+	}
+	.legal .span-7 p {
+		margin: 2.75em 0 1em 0;
+	}
+	#other_brands {width: 207px; height: 30px;}
+	#other_brands li {float: left; width: 69px; height: 30px; padding-right: 0;}
+	#other_brands li a {
+		background-image: url(/static/tracfone/assets/images/footer_brands_sprite.png);
+		display: block;
+		height: 30px;
+		list-style-type: none;
+		opacity: 0.7;
+		-moz-opacity: 0.7;
+		filter:alpha(opacity=70);
+		text-indent: -9999px;
+	}
+	#other_brands li a:hover {opacity: 1;
+	-moz-opacity: 1;
+	filter:alpha(opacity=100);}
+	#other_brands .net10 a {background-position: 0 0;}
+	#other_brands .straight_talk a {background-position: -69px 0;}
+	#other_brands .safelink a {background-position: -138px 0;}
+
+	.legal .span-7 h2 {
+		color: white;
+		font: 20px/1em 'AllerLig','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		margin-bottom: .25em;
+		text-shadow: none;
+	}
+	.legal .span-7 form {
+		overflow: hidden;
+		margin: 1em 0 0em;
+	}
+	.legal .span-7 input.text {
+		-webkit-border-top-left-radius: 14px;
+		   -moz-border-radius-topleft: 14px;
+		        border-top-left-radius: 14px;
+		-webkit-border-bottom-left-radius: 14px;
+		   -moz-border-radius-bottomleft: 14px;
+		        border-bottom-left-radius: 14px;
+/*		-webkit-box-shadow: 0px 1px 3px #435e88;
+		   -moz-box-shadow: 0px 1px 3px #435e88;
+		     -o-box-shadow: 0px 1px 3px #435e88;
+		        box-shadow: 0px 1px 3px #435e88;
+*/		background-color: #152F4A;
+		border: none;
+		color: #FFFFFF;
+		font-size: 1.3em;
+		padding: 6px 10px;
+		width: 180px;
+		float: left;
+		margin-right: 4px;
+	}
+	.legal .span-7 input.btn {
+		-webkit-border-top-right-radius: 14px;
+			-moz-border-radius-topright: 14px;
+				border-top-right-radius: 14px;
+		-webkit-border-bottom-right-radius: 14px;
+			-moz-border-radius-bottomright: 14px;
+				border-bottom-right-radius: 14px;
+		-webkit-border-top-left-radius: 0px;
+			-moz-border-radius-topleft: 0px;
+				border-top-left-radius: 0px;
+		-webkit-border-bottom-left-radius: 0px;
+			-moz-border-radius-bottomleft: 0px;
+				border-bottom-left-radius: 0px;
+		float: left;
+		font: 1.2em/1em 'AllerReg','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		margin: 6px 0 0 0; padding: 5px 15px 5px 10px;
+		text-transform: uppercase;
+	}
+
+/* @end */
+
+/* @group Why Tracfone */
+
+	.page_listing .title_bar, .phone_page .title_bar, .phone_landing .title_bar, .tour .title_bar {
+		background-image: url(/static/tracfone/assets/images/title_bar_bg_swirl.jpg);
+	}
+	.tour .title_bar {
+		height: 48px;
+		padding: 11px 0;
+	}
+	.tour .title_bar h1 {
+		padding-top: 4px;
+	}
+	.page_options .big_btn {
+		border: 5px solid #236214;
+		border: 5px solid rgba(0,0,0,0.2);
+		-webkit-border-radius: 5px;
+		   -moz-border-radius: 5px;
+		        border-radius: 5px;
+		font: 1.8em/1em 'AllerLig','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		padding: 10px 14px 10px 14px;
+		text-align: left;
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		background-clip: padding-box;
+	}
+	.big_btn a {
+
+		text-decoration: none;
+	}
+	.big_btn a:hover {
+		color: #222;
+	}
+
+	.content_nav {background: #e0e0e0;
+		border:1px solid #d5d6d7;
+		background-image: -moz-linear-gradient(-90deg, #f7f7f7 , #dadada );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #f7f7f7 ), to( #dadada ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#dadada');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f7f7f7, endColorstr=#dadada)";
+		-webkit-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		   -moz-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		     -o-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		        box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+			}
+	.content_nav ul {margin:0px;}
+	.content_nav ul li {display:block; cursor: pointer;}
+	.content_nav ul li a {
+		color:#222222;
+		display:block;
+		font-size:1.1em;
+		font-weight:bold;
+		margin:0px;
+		padding:22px 0 26px 84px;
+		text-decoration:none;
+		text-shadow:1px 1px 2px #ffffff;
+		text-transform:uppercase;
+	}
+
+	/* Spanish Tour Nav Fix */
+	.es .content_nav ul li a { font-size:1.1em; }
+
+	.content_nav ul li a:hover{color:#288500;}
+	.content_nav #overview a {background:url(/static/tracfone/assets/images/tour_nav_sprites.png) no-repeat scroll 20px 10px transparent;}
+	.content_nav #whytrac a {background:url(/static/tracfone/assets/images/tour_nav_sprites.png) no-repeat scroll 20px -61px transparent;}
+	.content_nav #services a {background:url(/static/tracfone/assets/images/tour_nav_sprites.png) no-repeat scroll 20px -131px transparent;}
+	.content_nav #how a {background:url(/static/tracfone/assets/images/tour_nav_sprites.png) no-repeat scroll 20px -200px transparent;}
+	.content_nav #about a {background:url(/static/tracfone/assets/images/tour_nav_sprites.png) no-repeat scroll 20px -273px transparent;}
+
+	#hiddenanchor { height:1px; position: absolute; top:10px; z-index:1000; border: none;  }
+
+	.content_nav #overview.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over.png) no-repeat scroll 20px 10px transparent;}
+	.content_nav #whytrac.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over.png) no-repeat scroll 20px -61px transparent;}
+	.content_nav #services.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over.png) no-repeat scroll 20px -131px transparent;}
+	.content_nav #how.selected a {	background:url(/static/tracfone/assets/images/tour_nav_sprites_over.png) no-repeat scroll 20px -200px transparent;}
+	.content_nav #about.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over.png) no-repeat scroll 20px -273px transparent;}
+
+	/* TEXT MESSAGING PAGE */
+	.content_nav #txtsms a {background:url(/static/tracfone/assets/images/tour_nav_sprites2.png) no-repeat scroll 20px -343px transparent;}
+	.content_nav #txtmms a {background:url(/static/tracfone/assets/images/tour_nav_sprites2.png) no-repeat scroll 20px -416px transparent;}
+	.content_nav #txtinst a {background:url(/static/tracfone/assets/images/tour_nav_sprites2.png) no-repeat scroll 20px 10px transparent;}
+	.content_nav #txtfaq a {background:url(/static/tracfone/assets/images/tour_nav_sprites2.png) no-repeat scroll 20px -487px transparent;}
+
+	.content_nav #txtsms.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over2.png) no-repeat scroll 20px -343px transparent;}
+	.content_nav #txtmms.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over2.png) no-repeat scroll 20px -416px transparent;}
+	.content_nav #txtinst.selected a {background:url(/static/tracfone/assets/images/tour_nav_sprites_over2.png) no-repeat scroll 20px 10px transparent;}
+	.content_nav #txtfaq.selected a {	background:url(/static/tracfone/assets/images/tour_nav_sprites_over2.png) no-repeat scroll 20px -487px transparent;}
+
+
+	.content_nav li.selected {
+		background-image: -moz-linear-gradient(-90deg, #81ba69 , #c4d4c2 );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #81ba69 ), to( #c4d4c2 ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#81ba69', endColorstr='#c4d4c2');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#81ba69, endColorstr=#c4d4c2)";
+	}
+	.content_nav li.selected a{
+		color: #288500;
+		border-top: 1px solid #48972a;
+		border-bottom: 1px solid #f9fafa;}
+
+
+	.slide h2 {font-size:3em; color:#48637f; margin-bottom:.25em;}
+	.slide h4 {font-size:1.4em; font-weight:bold;}
+	.slide h3 {position:relative; font-family: 'AllerLig','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+				font-size:2.4em; margin-bottom:0.5em;}
+	.slide h3 img {position:absolute; left:0px; top:-5px;}
+	.slide .steps {border-top:1px solid #ebedee; padding:15px 0px;}
+	.slide .container {/*border-top:1px solid #cfd0d2;*/ padding:8px 0px; }
+	.grey_divider  {border-top:1px solid #cfd0d2;}
+
+	h5 {font-size:1.7em;
+		color:#2a6096;
+		font-family:'AllerReg','Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+		font-weight:normal; margin-bottom:0em;}
+	#preloader 	{ background:#fff url(/static/tracfone/assets/images/ajax-loader.gif) no-repeat; background-position:center; width:220px; height:20px; padding:10px; border:1px solid #CCC; position:absolute; top: 100px; left:50%; display: none; -moz-box-shadow: 0 1px 3px #111;  -webkit-box-shadow: 0 1px 3px #eee; box-shadow: 0 1px 3px #eee; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px;}
+
+
+/* @end */
+
+/* @group Support page */
+	.support h2 {margin-bottom:0em;}
+	.support .span-6 h2, .support .span-10 h2 {text-align:left;}
+	.support_sidebar .support_section:nth-child(2) h2{color:#1b3d60;
+		font-family:'AllerBol','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		font-size:2em;
+	}
+	.support_section a {text-decoration:none;}
+	.support_section {
+		border-bottom: 1px solid #c9cacb;
+		padding: 7px 0px;
+	}
+	.support_section h2 img {
+		margin-right:10px;
+		margin-bottom:-5px;
+	}
+	.support_section input {
+		margin:1em 0em 1.2em 0em;
+		height:19px;
+	}
+	.support_section dd{
+		margin-left:0px;
+	}
+	.support_section .contact_us {background:url(/static/tracfone/assets/images/contact_icn.png) no-repeat;}
+	.support_section .btn {vertical-align:text-bottom;
+
+	}
+	.content_nav #overview a{
+		background:url("/static/tracfone/assets/images/tour_nav_sprites.png") no-repeat scroll 20px 14px transparent;
+	}
+	.support .content_nav #overview.selected a {
+		background:url("/static/tracfone/assets/images/tour_nav_sprites_over.png") no-repeat scroll 20px 15px transparent;
+	}
+	.tools_container {
+		position:relative;
+		border:3px solid #c3c5c6;
+		-webkit-border-radius: 4px;
+		   -moz-border-radius: 4px;
+				border-radius: 4px;
+	}
+	.tools_btn{
+		background: #e0e0e0;
+		background-image: -moz-linear-gradient(-90deg, #fffefe , #cac7c4 );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #fffefe ), to( #cac7c4 ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffefe', endColorstr='#cac7c4');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#fffefe, endColorstr=#cac7c4)";
+		color: #448f24;
+		display:block;
+		height:54px; width:82px;
+		text-align:center;
+	}
+	.support_section dd{
+		margin-left:0px;
+	}
+	.tools_btn img {padding-top:15px;}
+	.tools_label {
+		position:absolute;
+		left:93px;
+		top:13px;
+		color:#1b3d60;
+		font-weight:bold;
+		text-shadow: 0 1px 0 white;
+	}
+	.support_section:last-child {border-bottom:none;}
+	.support_page .page_options p {
+		color:#fff;
+		text-shadow:0 1px 1px #14280D;
+		text-transform:uppercase;
+		font-size:1.0em;
+		font-weight:bold;
+	}
+/* @end */
+
+/* @group FAQ page */
+
+	.faq_nav {
+		border:1px solid #d5d6d7;
+		background-image: -moz-linear-gradient(-90deg, #f7f7f7 , #dadada );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #f7f7f7 ), to( #dadada ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#dadada');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f7f7f7, endColorstr=#dadada)";
+		*background-color: #f7f7f7; /* IE Hack to show BG colors */
+		-webkit-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		   -moz-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		     -o-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		        box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+
+			}
+	.faq_nav ul {margin:0px;}
+	.faq_nav ul li {display:block;}
+	.faq_nav li a {
+		color: #222222;
+    	display: block;
+    	font-size: 1.2em;
+    	font-weight: bold;
+		margin: 0;
+		padding: 22px 0 26px 84px;
+		text-decoration: none;
+		text-shadow: 1px 1px 2px #FFFFFF;
+		text-transform: uppercase;
+		background: url("/static/tracfone/assets/images/tour_nav_sprites.png") no-repeat scroll 20px 14px transparent;
+	}
+
+	/* CR 15956 (Defect 1277): New class shrinks text. */
+	.es .faq_nav li a {
+    	font-size: 1em;
+	}
+
+	.faq_sub {background-image: -moz-linear-gradient(-90deg, #7aaa66 , #92b983 );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #7aaa66 ), to( #92b983 ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7aaa66', endColorstr='#92b983');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7aaa66, endColorstr=#92b983)";
+		border-top:2px solid #3f7c40;
+		*background-color: #7aaa66; /* IE Hack to show BG colors */
+		}
+
+	.faq_cat .faq_sub li a {padding:2px 0px 2px 20px; background:none; text-transform:capitalize; font-size:1.2em;
+	color:#fff; text-shadow:none;
+	}
+	.faq_cat .faq_sub li a:hover {text-decoration:underline;}
+	.faq_main h4 {font-size:1.8em; padding-bottom:1.0em; border-bottom:1px solid #c1c2c3;}
+	.faq_main  ul {list-style:none;}
+	.faq_main  ul li {padding-bottom:15px;}
+	.faq_main p {margin:0px; font-size:1.3em; font-weight:bold;}
+	.faq_main .question {
+		padding:9px 5px 9px 50px;
+		-webkit-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		-moz-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		-o-box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		box-shadow:    #666 0px 1px 1px, inset #bfbfbf 0px 0px 1px;
+		background-color: #dfe0e1;
+		background-image: url(/static/tracfone/assets/images/question.png);
+		background-repeat: no-repeat;
+		background-position: 12px center;
+	}
+	.faq_main .answer {
+		background:url(/static/tracfone/assets/images/answer.png)
+		border-top:2px solid #3f7c40;
+		padding:15px 5px 10px 50px;
+		background-color: #7BAA67;
+		background-image: url(/static/tracfone/assets/images/answer.png);
+		background-repeat: no-repeat;
+		background-position: 12px 12px;
+		display:none;
+	}
+	.faq_main .answer p,
+	.faq_main .answer ol li,
+	.faq_main .answer ul li	{color:#fff;}
+/* @end */
+
+/* @group Tour pagination */
+
+	.pagination {
+		background: #EBEDEE;
+		background: rgba(187,187,187,.1);
+		width: 920px;
+		padding: 15px;
+		float: left;
+		margin: 20px 0 0 0;
+		-moz-box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .1);
+		-webkit-box-shadow: inset 1px 2px 10px rgba(0, 0, 0, .1);
+		box-shadow: inset 1px 2px 10px rgba(0, 0, 0, .1);
+	}
+	.pagination a {
+		width: 119px;
+		height: 31px;
+		line-height: 31px;
+		text-align: center;
+		color: #fff;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 1.2em;
+	}
+	.pagination .previous {
+		float: left;
+		padding-left: 5px;
+	}
+	.pagination .next {
+		float: right;
+		padding-right: 5px;
+	}
+	.pagination a.previous {
+		background: url(/static/tracfone/assets/images/previous_arrow.png) no-repeat 0 0;
+	}
+	.pagination a.next {
+		background: url(/static/tracfone/assets/images/next_arrow.png) no-repeat 0 0;
+	}
+	.pagination span {
+		height: 31px;
+		line-height: 31px;
+		margin: 0 20px;
+		font-size: 1.4em;
+		font-weight: bold;
+		color: #000;
+	}
+/* @group Zipcode Form */
+
+	#zip_submit, #ticket_submit {
+		float: right;
+		margin: 8px 0 0 0;
+	}
+	#zip_submit label, #ticket_submit label {
+		color: #fff;
+		background: url(/static/tracfone/assets/images/zip_code_icon.png) no-repeat 0 0;
+		display: block;
+		float: left;
+		margin: 4px 0 0 0; padding: 2px 8px 2px 20px;
+		text-shadow: 1px 1px 1px #145311;
+		text-transform: uppercase;
+	}
+	.title_btn {
+		background: #e6e4e2;
+		background-image: -moz-linear-gradient(-90deg, #fffefe , #cac7c4 );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #fffefe ), to( #cac7c4 ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fffefe, endColorstr=#cac7c4);
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#fffefe, endColorstr=#cac7c4)";
+		-webkit-border-radius: 4px;
+		   -moz-border-radius: 4px;
+		        border-radius: 4px;
+		border: 0;
+		color: #1b3d60;
+		font: normal 1.2em/1em 'AllerBol','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		margin: 6px 0 0 4px;
+		padding: 4px 0 3px 0;
+		text-align: center;
+		text-decoration: none;
+		text-shadow: 1px 1px 0px #fff;
+		text-transform: uppercase;
+		width: 60px;
+		padding:4px 12px 3px
+	}
+	#zip_search, #ticket_search {
+		background: #134c10;
+		background: rgba(0,0,0,.3);
+		border: 0;
+		-webkit-border-radius: 4px;
+		   -moz-border-radius: 4px;
+		        border-radius: 4px;
+		color: #fff;
+		font-size: 1em;
+		margin: 0 3px 0 0;
+		padding: 2px 0 3px 4px;
+		position: relative;
+		right: -3px;
+		height: 18px;
+		-webkit-box-shadow: inset 1px 2px 1px #134b10;
+		   -moz-box-shadow: inset 1px 2px 1px #134b10;
+		     -o-box-shadow: inset 1px 2px 1px #134b10;
+		        box-shadow: inset 1px 2px 1px #134b10;
+		color: white;
+		font-size: 1.2em;
+		text-transform: uppercase;
+		width: 120px;
+	}
+	#zip_submit input, #ticket_submit input {
+		float: right;
+	}
+	.input-btn {
+		border: none;
+		color: #1c4062;
+		cursor: pointer;
+		font: 1.1em/1em 'AllerBol','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+		background: #e6e4e2;
+		background-image: -moz-linear-gradient(-90deg, #fffefe , #cac7c4 );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #fffefe ), to( #cac7c4 ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffefe', endColorstr='#cac7c4');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#fffefe, endColorstr=#cac7c4)";
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		height: 23px;
+		margin: 0 0 0 4px; padding: 2px 0 4	px 0;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		text-shadow: 1px 1px 1px #fff;
+		text-transform: uppercase;
+		line-height: 12px;
+		width: 60px;
+	}
+	.input-btn:hover {
+		background: #e6e4e2;
+		background-image: -moz-linear-gradient(-90deg, #cac7c4 , #fffefe );
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #cac7c4 ), to( #fffefe ));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cac7c4', endColorstr='#fffefe');
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#cac7c4, endColorstr=#fffefe)";
+		color: #222;
+	}
+
+	/*Pay as you go popup scroller*/
+	#paygo_special .controls {margin:-18px 0px 0px 20px;}
+	#paygo_special .scrollable {
+		position:relative;
+		overflow:hidden;
+		width: 400px;
+		height:300px;
+	}
+
+	#paygo_special .scrollable .items {
+		width:20000em;
+		position:absolute;
+		clear:both;
+	}
+
+	#paygo_special .items div {
+		float:left;
+		width:400px;
+        height: 300px;
+
+	}
+
+	#paygo_special .scrollable img {
+		float:left;
+	}
+
+	#paygo_special .scrollable .active {
+		border:2px solid #000;
+		position:relative;
+		cursor:default;
+	}
+	#paygo_special a.right {
+	background:url(/static/tracfone/images/right.png) no-repeat;
+	width:18px; height:18px; display:block; float:left; margin-right:10px; cursor:pointer;
+	}
+	#paygo_special  a.right:hover {background-position:0px -18px;}
+	#paygo_special a.left{
+	background:url(/static/tracfone/images/left.png) no-repeat;
+	width:18px; height:18px; display:block; float:left; margin-right:10px; cursor:pointer;
+	}
+	#paygo_special a.left:hover{background-position:0px -18px;}
+	.coverage_maps_input button.btn {margin-top:0px !important;}
+
+/*Pay As You Go*/
+
+#sidebar-total-info thead{
+	font-family: AllerBol;
+	font-size: 12px;
+}
+
+.service_days{
+	background: url(/static/tracfone/images/days_bg_2.png) no-repeat;
+	width: 80px;
+	height: 44px;
+	line-height: 54px;
+	color: #fff;
+	font-size: 2.2em;
+	font-family: AllerBol;
+	text-align: center;
+	text-shadow: 0 1px 0 #000;
+}
+
+.service_minutes { background: url('/static/tracfone/assets/images/minutes_bg.png') no-repeat scroll 6px 3px rgb(139, 180, 127); color: white; font: 2.2em/1em 'AllerBol','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif; text-align: center; text-shadow: 1px 1px 0px rgb(66, 66, 61); margin: 7px 0 0 0; padding: 4px 6px 5px 28px; width: 70px; border-radius: 16px 16px 16px 16px; box-shadow: 0px 2px 1px rgb(73, 139, 55) inset;}
+
+#tooltip611{
+	background: url('/static/common/images/611tooltip.png') no-repeat;
+	width: 108px;
+	height: 67px;
+	position: absolute;
+	top: 122px;
+	cursor: pointer;
+}
+
+#tooltip611 p{
+	font-size: 10px;
+	padding: 0;
+	margin-top: 14px;
+	margin-left: 10px;
+	line-height: 15px;
+}
+
+/* @end */

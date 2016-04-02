@@ -109,6 +109,9 @@
                   <div>
                      <label>Total : $ {{total}}</label>
                   </div>
+                  <div class="checkbox">
+                     <label><input type="checkbox" ng-model="autoenroll" ng-click="updateCCSaveBtn()">Enroll In     Auto-Refill</label>
+                  </div>
                </div>
             </div>
             <!-- /container -->
@@ -229,7 +232,9 @@
 
 				<div class="row">
 				   <div class="col-lg-3">
-					  
+                      <div class="checkbox">
+                         <label><input type="checkbox" ng-disabled="ccbtndisabled" ng-model="savecc" >Save card for future transaction</label>
+                      </div>
 				   </div>
 				   <div class="col-lg-3">
 					  

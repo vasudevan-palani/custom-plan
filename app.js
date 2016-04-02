@@ -132,7 +132,16 @@ minionModule.controller('GuageController',function($scope,$rootScope)
 		$scope.CreateGauge();
 		$scope.CreateGauge1();
 		$scope.CreateGauge2();
+        
+        $scope.autoenroll=false;
+        $scope.ccbtndisabled = false;
+        $scope.savecc = false;
 	}
+    
+    $scope.updateCCSaveBtn = function(){
+        $scope.ccbtndisabled = $scope.autoenroll;
+        $scope.savecc=$scope.autoenroll;
+    }
 	
 	$scope.$on('minute',function(event,args){
 		$scope.minuteValue = args;

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="../../favicon.ico">
+      <title>My Plans</title>
+      <!-- Bootstrap core CSS -->
+      <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Bootstrap theme -->
+      <link href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="jqwidgets-4.0/jqwidgets/styles/jqx.base.css" />
+      <link rel="stylesheet" type="text/css" href="app.css" />
+      <link rel="stylesheet" type="text/css" href="steps.css" />
+      <!-- Custom styles for this template -->
+      <link href="theme.css" rel="stylesheet">
+      <script type="text/javascript" src="jqwidgets-4.0/scripts/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxcore.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxdata.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxdraw.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxgauge.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxbuttons.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/jqwidgets/jqxslider.js"></script>
+      <script type="text/javascript" src="jqwidgets-4.0/scripts/demos.js"></script>
+      <script type="text/javascript" src="angular.min.js"></script>
+	  <script type="text/javascript" src="ngMask.min.js"></script>
+      <script type="text/javascript" src="sprintf.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+      <script type="text/javascript"></script>
+	  <style type="text/css">
+		  .css-form input.ng-invalid.ng-touched {
+			background-color: #FA787E;
+		  }
+
+		  .css-form input.ng-valid.ng-touched {
+			background-color: #78FA89;
+		  }
+
+.lin_grad {
+    background: #1070B6;
+    height: 35px;
+}
+
+#top_deals .wrapper {
+    position: relative;
+}
+
+.clearfix, .wrapper {
+    display: block;
+}
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+#top_deals p {
+    font-size: 11px;
+}
+
+#top_deals p {
+    color: #ffffff;
+    margin: 0;
+    padding: 8px 0 8px 4px;
+    text-transform: uppercase;
+}
+
+.navrow a {
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: bold;
+	white-space: nowrap;
+	
+}
+
+.title_bar {
+    background: url(http://tracfone.com/static/tracfone/assets/images/title_bar_bg.jpg) top center repeat-x;
+    border-bottom: 1px solid #fff;
+    
+    padding: 1px 18px 0;
+    z-index: 5;
+}
+
+.title_bar .wrapper {
+    position: relative;
+}
+
+.title_bar h1 {
+    color: #fff;
+    font-family: 'AllerLig','Lucida Grande','Lucida Sans Unicode',Verdana,sans-serif;
+    font-weight: normal;
+    font-size: 2.6em;
+    line-height: 1em;
+    text-shadow: 1px 2px 0px #215804;
+    letter-spacing: -1px;
+    font-weight: normal;
+}
+
+.span-11 {
+    width: 430px;
+}
+.navrow div{
+	text-align: center;
+}
+
+
+#account_login {
+    background: #72CC57;
+    color: white;
+    display: block;
+    font: 1.1em/1em 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    position: absolute;
+    top: -2px;
+    right: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: none;
+    padding: 16px 24px 18px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.round{
+	-webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius-: 4px;
+    border-radius: 4px;
+}
+
+
+		</style>
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body role="document" ng-app="app">
+   	<div>
+		<div class="lin_grad">
+			<div class="row">
+	   			<div class="lin_grad" id="top_deals">
+					<div class="texture png">
+						<div class="wrapper">
+							<p>DO EVERYTHING FOR LESS<sup>®</sup></p>
+							<a id="account_login" href="#">My Account</a>
+						</div>
+					</div>
+				</div>				
+			</div>			
+		</div>
+	</div> <!-- .lin_grad -->
+	<br/>
+	<br/>
+	<div class="container">
+		<div class="row navrow">
+				<div class="col-lg-2">
+					<img src="logo.png"/>
+				</div>
+				<div class="col-lg-1">
+					<a href="/direct/CoverageMaps">Coverage</a>
+				</div>
+				<div class="col-lg-1">
+					<a href="/direct/CoverageMaps">Find a store</a>
+				</div>
+				<div class="col-lg-1">
+					<a href="/direct/CoverageMaps">Contact us</a>
+				</div>
+				<div class="col-lg-2">
+					<a href="/direct/CoverageMaps">Track your Order</a>
+				</div>
+				<div class="col-lg-2">
+					<a href="/direct/CoverageMaps">Check your balance</a>
+				</div>
+				<div class="col-lg-1">
+					<a href="">Español</a>
+				</div>
+				<div class="col-lg-2">
+					<div >
+
+							<input class="form-control" type="text" placeholder="Search"></input>
+					</div>
+				</div>				
+		</div>
+	</div>
+	<br/>
+	<div class="title_bar">
+		<div class="wrapper">
+			<h1 class="span-11">
+		       Customize your plan
+		   	</h1>
+		 </div>
+	</div>
+
+      <div class="container theme-showcase" role="main" ng-controller="GuageController" ng-init="init()">
+         <br/><br/><br/><br/>
+         <!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="">
+			<div class="widget-body">
+				<div class="widget-main">
+					<div id="fuelux-wizard-container" class="no-steps-container">
+						<div>
+							<ul class="steps" style="margin-left: 0">
+								<li data-step="1" ng-class="{active:isSelectPlanForm()}">
+									<span class="step">1</span>
+									<span class="title">Select your plan</span>
+								</li>
+
+								<li data-step="2" ng-class="{active:isPhoneForm()}">
+									<span class="step">2</span>
+									<span class="title">Phone Details</span>
+								</li>
+
+								<li data-step="3" ng-class="{active:isCreditCardForm()}">
+									<span class="step" >3</span>
+									<span class="title">Credit Card Details</span>
+								</li>
+
+								<li data-step="4" ng-class="{active:isPaymentForm()}">
+									<span class="step">4</span>
+									<span class="title">Payment</span>
+								</li>
+								<li data-step="4" ng-class="{active:isSummaryForm()}">
+									<span class="step">4</span>
+									<span class="title">Summary</span>
+								</li>
+							</ul>
+						</div>
+
+						<hr>
+
+
+						<div class="step-content pos-rel">
+							<div class="step-pane" ng-class="{active : isSelectPlanForm()}" data-step="1">
+						         <span ng-show="isSelectPlanForm()">
+						            <div class="page-header">
+						               <h1>Select your plan</h1>
+						            </div>
+						            <div class="row">
+						               <div class="col-lg-3">
+						                  <div id='gauge'>
+						                  </div>
+						               </div>
+						               <div class="col-lg-3">
+						                  <div id='gauge1'>
+						                  </div>
+						               </div>
+						               <div class="col-lg-3">
+						                  <div id='gauge2'>
+						                  </div>
+						               </div>
+						               <div class="col-lg-3">
+						                  <div>
+						                     <h3><label>Charges : $ {{charges}}</label></h3>
+						                  </div>
+						                  <div>
+						                     <label>Tax : $ {{tax}}</label>
+						                  </div>
+						                  <div>
+						                     <label>Total : $ {{total}}</label>
+						                  </div>
+						               </div>
+						            </div>
+						            <!-- /container -->
+						            <div class="row">
+						               <div class="col-lg-3">
+						                  <div id='slider' style="position: relative; top: 0px; left: 3px; width : 10px">
+						                  </div>
+						               </div>
+						               <div class="col-lg-3">
+						                  <div id='slider1' style="position: relative; top: 0px; left: 3px">
+						                  </div>
+						               </div>
+						               <div class="col-lg-3">
+						                  <div id='slider2' style="position: relative; top: 0px; left: 3px">
+						                  </div>
+						               </div>
+						               <div class="col-lg-3">
+						                  <div class="form-group">
+												 <button class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"><span class="glyphicon glyphicon-chevron-left"></span>Prev</button>
+												 <button class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()">Next<span class="glyphicon glyphicon-chevron-right"></span></button>
+						                  </div>
+						               </div>
+						            </div>
+						            <!-- /container -->
+						            <div class="row">
+						               <div class="col-lg-3">
+						                  <input type="text" ng-model="minuteValue" id="minuteValueId"> Minute(s)
+						               </div>
+						               <div class="col-lg-3">
+						                  <input type="text" ng-model="textValue" id="textValueId"> Text(s)
+						               </div>
+						               <div class="col-lg-3">
+						                  <input type="text" ng-model="dataValue" id="dataValueId"> GB(s)
+						               </div>
+						               <div class="col-lg-3">
+						                  <div>
+						                  </div>
+						               </div>
+						            </div>
+						            <!-- /container -->
+						         </span>
+
+							</div>
+
+							<div class="step-pane" ng-class="{active : isPhoneForm()}" data-step="2">
+								 <span ng-show="isPhoneForm()">
+						            <div class="page-header">
+						               <h1>Phone Details</h1>
+						            </div>		 
+									<form>
+										<div class="row">
+											<ul class="nav nav-pills">
+											  <li ng-class="{active : isExistingCustomer()}"><a href="" ng-click="existingCustomer()">Existing Customer</a></li>
+											  <li ng-class="{active : isNewCustomer()}"><a href="" ng-click="newCustomer()">New Customer</a></li>
+											</ul>				
+										</div>
+										<br/><br/>
+										<div class="row panel panel-default panel-body" ng-show="isExistingCustomer()">
+											<div class="form-group">
+												<label>ESN</label/>
+												<input class="form-control" type="number" ng-model="esn" required/>
+											</div>
+										</div>
+										<div class="row panel panel-default panel-body" ng-show="isNewCustomer()">
+											<div class="form-group">
+												<label>ESN</label/>
+												<input class="form-control" type="text" ng-model="esn"  maxlength="15"/>
+											</div>
+											<div class="form-group">
+												<label>SIM</label/>
+												<input class="form-control" maxlength="20" type="text" ng-model="sim"/>
+											</div>
+											<div class="form-group">
+												<label>ZIP</label/>
+												<input class="form-control" type="text" ng-model="zip"/>
+											</div>
+										</div>
+
+										<div class="row">
+										   <div class="col-lg-3">
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  
+										
+										   </div>
+										   <div class="col-lg-3">
+											  
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  <div class="form-group">
+												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"><span class="glyphicon glyphicon-chevron-left"></span>Prev</a>
+												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
+											  </div>
+										   </div>
+										</div>
+										
+									</form>
+								 </span>
+							</div>
+							<div class="step-pane" ng-class="{active : isCreditCardForm()}" data-step="3">
+								 <span ng-show="isCreditCardForm()">
+						            <div class="page-header">
+						               <h1>Credit Card Details</h1>
+						            </div>		 
+									<form>
+										<br/><br/>
+										<div class="row panel panel-default panel-body">
+											<div class="form-group">
+												<label>Credit Card Number</label/>
+												<input class="form-control" type="number" ng-model="ccNumber" required/>
+											</div>
+											<div class="form-group">
+												<label>Expiration</label/>
+												<input class="form-control" type="text" mask="99/99" ng-model="expiry" required placeholder="mm/yy"/>
+											</div>
+											<div class="form-group">
+												<label>CVC Code</label/>
+												<input class="form-control" type="number" mask="999" ng-model="cvc" required/>
+											</div>
+										</div>
+
+										<div class="row">
+										   <div class="col-lg-3">
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  
+										
+										   </div>
+										   <div class="col-lg-3">
+											  
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  <div class="form-group">
+												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"><span class="glyphicon glyphicon-chevron-left"></span>Prev</a>
+												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
+											  </div>
+										   </div>
+										</div>
+										
+									</form>
+								 </span>
+
+							</div>
+							<div class="step-pane" ng-class="{active : isPaymentForm()}" data-step="4">
+								 <span ng-show="isPaymentForm()">
+						            <div class="page-header">
+						               <h1>Payment Summary</h1>
+						            </div>		 
+										<br/><br/>
+										<div class="row">
+											<div class="col-lg-4">
+												<div class="panel panel-default ">
+													<div class="panel-heading">
+														<h3 class="panel-title">Charges</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <h3><label>Unit Charges : $ {{charges}}</label></h3>
+													  </div>
+													  <div>
+														 <label>Tax : $ {{tax}}</label>
+													  </div>
+													  <div>
+														 <label>Total : $ {{total}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="panel panel-default ">
+													<div class="panel-heading">
+														<h3 class="panel-title">Phone Details</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <label>ESN : {{esn}}</label>
+													  </div>
+													  <div>
+														 <label>SIM : {{sim}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="panel panel-default ">
+													<div class="panel-heading">
+														<h3 class="panel-title">Credit card details</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <label>Credit card : {{ccNumber}}</label>
+													  </div>
+													  <div>
+														 <label>Expiry : {{expiry}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+										   <div class="col-lg-3">
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  
+										
+										   </div>
+										   <div class="col-lg-3">
+											  
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  <div class="form-group">
+												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"><span class="glyphicon glyphicon-chevron-left"></span>Prev</a>
+												 <a href='' class="btn btn-lg btn-danger" ng-disabled="isNextDisabled()" ng-click="checkout()"><i class="ace-icon glyphicon glyphicon-ok"></i>Checkout</a>
+											  </div>
+										   </div>
+										</div>
+
+								 </span>
+
+							</div>
+							<div class="step-pane" ng-class="{active : isSummaryForm()}" data-step="5">
+								 <span ng-show="isSummaryForm()">
+						            <div class="page-header">
+						               <h1>Transaction Summary</h1>
+						            </div>		 
+									<form>
+										<br/><br/>
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="panel panel-default panel-primary">
+													<div class="panel-heading">
+														<h3 class="panel-title">Transaction Details</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <h3><label>Transaction Id : 3249873248732487</label></h3>
+													  </div>
+													  <div>
+														 <label>Transaction date : {{curdate|date:'medium'}}</label>
+													  </div>
+													  <div>
+														 <label>Total : $ {{total}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+										</div>					
+										<div class="row">
+											<div class="col-lg-4">
+												<div class="panel panel-default ">
+													<div class="panel-heading">
+														<h3 class="panel-title">Charges</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <h3><label>Unit Charges : $ {{charges}}</label></h3>
+													  </div>
+													  <div>
+														 <label>Tax : $ {{tax}}</label>
+													  </div>
+													  <div>
+														 <label>Total : $ {{total}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="panel panel-default ">
+													<div class="panel-heading">
+														<h3 class="panel-title">Phone Details</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <label>ESN : {{esn}}</label>
+													  </div>
+													  <div>
+														 <label>Sim : {{sim}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="panel panel-default ">
+													<div class="panel-heading">
+														<h3 class="panel-title">Credit card details</h3>
+													</div>
+													<div class="panel-body">
+													  <div>
+														 <label>Credit card : {{ccNumber}}</label>
+													  </div>
+													  <div>
+														 <label>Expiry : {{expiry}}</label>
+													  </div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+										   <div class="col-lg-3">
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  
+										
+										   </div>
+										   <div class="col-lg-3">
+											  
+											  
+										   </div>
+										   <div class="col-lg-3">
+											  <div class="form-group">
+											  </div>
+										   </div>
+										</div>
+										
+									</form>
+								 </span>
+
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+      <br/>
+     <div class="row" style="padding-top:10px;background-color:#114580;color:#FFFFFF">
+      <div class="container">
+        <div class="col-lg-3" style="font-size:12px">
+        	<b><p style="font-size:14px">TracFone</p></b>
+        	<br/>
+        	Why TracFone<br/>
+        	Coverage<br/>
+
+        </div>
+        <div class="col-lg-3">
+        	<b><p style="font-size:14px">Phones</p></b>
+        	<br/>
+        	Browse All Phones<br/>
+        	Shop Phones<br/>
+        	Shop Bundles<br/>
+        </div>
+        <div class="col-lg-3">
+        	<b><p style="font-size:14px">Airtime</p></b>
+        	<br/>
+        	Pay As You Go<br/>
+        	Monthly Value Plans<br/>
+        	Buy Airtime From Phone<br/>
+        </div>
+      </div>
+    </div>
+      <!-- Bootstrap core JavaScript
+         ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+   </body>
+</html>

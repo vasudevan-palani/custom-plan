@@ -45,6 +45,10 @@ minionModule.controller('GuageController',function($scope,$rootScope)
             $('#slider1').on('mousewheel', function () {
                 $('#gauge1').jqxGauge('value', $('#slider1').jqxSlider('value'));
             });
+            $('#minuteValueId').blur(function () {
+            	console.log($('#minuteValueId').value);
+                $('#gauge').jqxGauge('value', $('#minuteValueId').val()/100);
+            });            
             //$('#gauge1').jqxGauge('value', 60);
 		}
 		$scope.CreateGauge2 = function(){
@@ -78,6 +82,10 @@ minionModule.controller('GuageController',function($scope,$rootScope)
             $('#slider2').on('mousewheel', function () {
                 $('#gauge2').jqxGauge('value', $('#slider2').jqxSlider('value'));
             });
+            $('#textValueId').blur(function () {
+            	console.log($('#textValueId').value);
+                $('#gauge1').jqxGauge('value', $('#textValueId').val()/100);
+            });              
             //$('#gauge2').jqxGauge('value', 60);
 		}
 		
@@ -113,6 +121,10 @@ minionModule.controller('GuageController',function($scope,$rootScope)
             $('#slider').on('mousewheel', function () {
                 $('#gauge').jqxGauge('value', $('#slider').jqxSlider('value'));
             });
+            $('#dataValueId').blur(function () {
+            	console.log($('#textValueId').value);
+                $('#gauge2').jqxGauge('value', $('#dataValueId').val());
+            });    
             //$('#gauge').jqxGauge('value', 60);
 		}
 

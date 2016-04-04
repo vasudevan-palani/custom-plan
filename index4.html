@@ -263,6 +263,9 @@
 						                  <div>
 						                     <h3><label>Charges : $ {{charges}}</label></h3>
 						                  </div>
+                                          <div ng-show="totalDisc != 0">
+						                     <label>Discount : $ -{{totalDisc}}</label>
+						                  </div>
 						                  <div>
 						                     <label>Tax : $ {{tax}}</label>
 						                  </div>
@@ -270,7 +273,7 @@
 						                     <label>Total : $ {{total}}</label>
 						                  </div>
                                       <div class="checkbox">
-                                         <label><input type="checkbox" ng-model="autoenroll" ng-click="updateCCSaveBtn()">Enroll In Auto-Refill<br/><p style="font-size:65%;">(Get 1 GB data by enrolling in Auto-Refill)</p></label>
+                                         <label><input type="checkbox" ng-model="autoenroll" ng-click="enrollClick()">Enroll In Auto-Refill<br/><p style="font-size:65%;">(Get 1 GB data by enrolling in Auto-Refill)</p></label>
                                       </div>
                                            
 						               </div>
@@ -299,13 +302,13 @@
 						            <!-- /container -->
 						            <div class="row">
 						               <div class="col-lg-3">
-						                  <input type="text" ng-model="minuteValue" id="minuteValueId"> Minute(s)
+						                  <input type="number" ng-model="minuteValue" id="minuteValueId"> Minute(s)
 						               </div>
 						               <div class="col-lg-3">
-						                  <input type="text" ng-model="textValue" id="textValueId"> Text(s)
+						                  <input type="number" ng-model="textValue" id="textValueId"> Text(s)
 						               </div>
 						               <div class="col-lg-3">
-						                  <input type="text" ng-model="dataValue" id="dataValueId"> GB(s)
+						                  <input type="number" ng-model="dataValue" id="dataValueId"> GB(s)
 						               </div>
 						               <div class="col-lg-3">
 						                  <div>
@@ -324,13 +327,13 @@
 						            </div>		 
 									<form>
 										<div class="row">
-											<ul class="nav nav-pills">
+											<ul class="nav nav-tabs">
 											  <li ng-class="{active : isExistingCustomer()}"><a href="" ng-click="existingCustomer()">Existing Customer</a></li>
 											  <li ng-class="{active : isNewCustomer()}"><a href="" ng-click="newCustomer()">New Customer</a></li>
 											</ul>				
 										</div>
 										<br/><br/>
-										<div class="row panel panel-default panel-body" ng-show="isExistingCustomer()">
+										<div class="row panel panel-body" ng-show="isExistingCustomer()">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
@@ -340,7 +343,7 @@
                                                     <div style="text-align: center">OR</div>
                                                     <div class="form-group">
                                                         <label>Phone Number</label/>
-                                                        <input class="form-control" type="number" ng-model="phnnumber" required/>
+                                                        <input class="form-control" type="number" ng-model="phonenumber" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
@@ -354,54 +357,60 @@
                                                </div>
                                             </div>        
 										</div>
-										<div class="row panel panel-default panel-body" ng-show="isNewCustomer()">
-                                            <div class="panel panel-info ">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Preferences</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                          <label>Phone Preference</label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.byop" value="true" ng-click="computeFormFields()">
-                                                            Bring Your Own Phone
-                                                          </label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.byop" value="false" ng-click="computeFormFields()">
-                                                            Tracfone Phone
-                                                          </label>
+										<div class="row panel panel-body" ng-show="isNewCustomer()">
+                                            <div class="row">
+                                                <div class="col-lg-8">
+                                                    <div class="panel panel-info ">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Preferences</h3>
                                                         </div>
-                                                        <div class="col-lg-4">
-                                                          <label>Number Preference</label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.phno" value="existing" ng-click="computeFormFields()">
-                                                            Transfer my existing number
-                                                          </label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.phno" value="new" ng-click="computeFormFields()">
-                                                            New number
-                                                          </label><br/>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-lg-4">
+                                                                  <label>Phone Preference</label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.byop" value="true" ng-click="computeFormFields()">
+                                                                    Bring Your Own Phone
+                                                                  </label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.byop" value="false" ng-click="computeFormFields()">
+                                                                    Tracfone Phone
+                                                                  </label>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                  <label>Number Preference</label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.phno" value="existing" ng-click="computeFormFields()">
+                                                                    Transfer my existing number
+                                                                  </label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.phno" value="new" ng-click="computeFormFields()">
+                                                                    New number
+                                                                  </label><br/>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                  <label>Carrier Preference</label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.carrier" value="att" ng-click="computeFormFields()">
+                                                                    AT&T - GSM
+                                                                  </label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.carrier" value="tmob" ng-click="computeFormFields()">
+                                                                    T-Mobile - GSM
+                                                                  </label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.carrier" value="spr" ng-click="computeFormFields()">
+                                                                    Sprint - CDMA
+                                                                  </label><br/>
+                                                                  <label>
+                                                                    <input type="radio" ng-model="newc.carrier" value="ver" ng-click="computeFormFields()">
+                                                                    Verizon - CDMA
+                                                                  </label>
+                                                                </div>  
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-4">
-                                                          <label>Carrier Preference</label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.carrier" value="att" ng-click="computeFormFields()">
-                                                            AT&T - GSM
-                                                          </label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.carrier" value="tmob" ng-click="computeFormFields()">
-                                                            T-Mobile - GSM
-                                                          </label><br/>
-                                                        <label>
-                                                            <input type="radio" ng-model="newc.carrier" value="spr" ng-click="computeFormFields()">
-                                                            Sprint - CDMA
-                                                          </label><br/>
-                                                          <label>
-                                                            <input type="radio" ng-model="newc.carrier" value="ver" ng-click="computeFormFields()">
-                                                            Verizon - CDMA
-                                                          </label>
-                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
                                                     </div>
                                                 </div>
                                             </div>
@@ -409,7 +418,7 @@
                                                 <div class="col-lg-6">
 											         <div class="form-group" ng-show="esnshow">
                                                         <label>IMEI/MEID/MEID DEC/MEID HEX</label/>
-                                                        <input class="form-control" type="text" ng-model="esn"  maxlength="15"/>
+                                                        <input class="form-control" type="number" ng-model="esn"  maxlength="15"/>
                                                     </div>
                                                     <div class="form-group" ng-show="simshow">
                                                         <label>SIM</label/>
@@ -448,34 +457,31 @@
 						            </div>		 
 									<form>
 										<br/><br/>
-										<div class="row panel panel-default panel-body">
-											<div class="form-group">
-												<label>Credit Card Number</label/>
-												<input class="form-control" type="number" ng-model="ccNumber" required/>
-											</div>
-											<div class="form-group">
-												<label>Expiration</label/>
-												<input class="form-control" type="text" mask="99/99" ng-model="expiry" required placeholder="mm/yy"/>
-											</div>
-											<div class="form-group">
-												<label>CVC Code</label/>
-												<input class="form-control" type="number" mask="999" ng-model="cvc" required/>
-											</div>
-										</div>
+
 
 										<div class="row">
-										   <div class="col-lg-3">
-											  
+										   <div class="col-lg-6">
+                                                <div class="row panel panel-body">
+                                                    <div class="form-group">
+                                                        <label>Credit Card Number</label/>
+                                                        <input class="form-control" type="number" ng-model="ccNumber" required/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Expiration</label/>
+                                                        <input class="form-control" type="text" mask="99/99" ng-model="expiry" required placeholder="mm/yy"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>CVC Code</label/>
+                                                        <input class="form-control" type="number" mask="999" ng-model="cvc" required/>
+                                                    </div>
+                                                </div>
 										   </div>
 										   <div class="col-lg-3">
 											  
-										
-										   </div>
-										   <div class="col-lg-3">
-											  
 											  
 										   </div>
 										   <div class="col-lg-3">
+                                               <br/><br/><br/><br/><br/><br/>
 											  <div class="form-group">
 												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isPrevDisabled()" ng-click="prev()"><span class="glyphicon glyphicon-chevron-left"></span>Prev</a>
 												 <a href='' class="btn btn-lg btn-primary" ng-disabled="isNextDisabled()" ng-click="next()">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -503,6 +509,9 @@
 													  <div>
 														 <h3><label>Unit Charges : $ {{charges}}</label></h3>
 													  </div>
+                                                      <div ng-show="totalDisc != 0">
+                                                         <label>Discount : $ -{{totalDisc}}</label>
+                                                      </div>
 													  <div>
 														 <label>Tax : $ {{tax}}</label>
 													  </div>
@@ -518,11 +527,14 @@
 														<h3 class="panel-title">Phone Details</h3>
 													</div>
 													<div class="panel-body">
-													  <div>
-														 <label>ESN : {{esn}}</label>
+													  <div ng-show="esn != null">
+														 <label>IMEI/MEID/MEID DEC/MEID HEX : {{esn}}</label>
 													  </div>
-													  <div>
+													  <div ng-show="sim != null">
 														 <label>SIM : {{sim}}</label>
+													  </div>
+                                                      <div ng-show="phonenumber != null">
+														 <label>Phone Number : {{phonenumber}}</label>
 													  </div>
 													</div>
 												</div>
@@ -604,6 +616,9 @@
 													  <div>
 														 <h3><label>Unit Charges : $ {{charges}}</label></h3>
 													  </div>
+                                                      <div ng-show="totalDisc != 0">
+                                                         <label>Discount : $ -{{totalDisc}}</label>
+                                                      </div>
 													  <div>
 														 <label>Tax : $ {{tax}}</label>
 													  </div>
@@ -619,11 +634,14 @@
 														<h3 class="panel-title">Phone Details</h3>
 													</div>
 													<div class="panel-body">
-													  <div>
-														 <label>ESN : {{esn}}</label>
+													  <div ng-show="esn != null">
+														 <label>IMEI/MEID/MEID DEC/MEID HEX : {{esn}}</label>
 													  </div>
-													  <div>
-														 <label>Sim : {{sim}}</label>
+													  <div ng-show="sim != null">
+														 <label>SIM : {{sim}}</label>
+													  </div>
+                                                      <div ng-show="phonenumber != null">
+														 <label>Phone Number : {{phonenumber}}</label>
 													  </div>
 													</div>
 												</div>

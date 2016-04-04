@@ -49,6 +49,8 @@ minionModule.controller('GuageController',function($scope,$rootScope)
             	console.log($('#textValueId').value);
                 $('#gauge1').jqxGauge('value', $('#textValueId').val()/100);
                 $('#slider1').jqxSlider('value',$('#textValueId').val());
+                $scope.calc();
+				$scope.$digest();
             });            
             //$('#gauge1').jqxGauge('value', 60);
 		}
@@ -75,7 +77,7 @@ minionModule.controller('GuageController',function($scope,$rootScope)
 				$scope.dataValue=$('#slider2').jqxSlider('value');
 				$scope.calc();
 				$scope.$digest();
-
+                
             });
             $('#slider2').on('slideEnd', function (e) {
                 $('#gauge2').jqxGauge('value', e.args.value);
@@ -86,7 +88,9 @@ minionModule.controller('GuageController',function($scope,$rootScope)
             $('#dataValueId').blur(function () {
             	console.log($('#dataValueId').value);
                 $('#gauge2').jqxGauge('value', $('#dataValueId').val());
-                $('#slider2').jqxSlider('value',$('#dataValueId').val())
+                $('#slider2').jqxSlider('value',$('#dataValueId').val());
+                $scope.calc();
+				$scope.$digest();
             });              
             //$('#gauge2').jqxGauge('value', 60);
 		}
@@ -127,6 +131,8 @@ minionModule.controller('GuageController',function($scope,$rootScope)
             	console.log($('#minuteValueId').value);
                 $('#gauge').jqxGauge('value', $('#minuteValueId').val()/100);
                 $('#slider').jqxSlider('value',$('#minuteValueId').val());
+                $scope.calc();
+				$scope.$digest();
             });    
             //$('#gauge').jqxGauge('value', 60);
 		}
@@ -137,6 +143,11 @@ minionModule.controller('GuageController',function($scope,$rootScope)
 		$scope.minuteValue = 0.00;
 		$scope.textValue = 0.00;
 		$scope.dataValue = 0.00;
+        
+        $scope.dataCost=5;
+        $scope.refillDataDisc=1;
+        $scope.discount=[];
+        $scope.totalDisc=0;
 	
 		$scope.formIndex = 0;
 		
@@ -153,7 +164,6 @@ minionModule.controller('GuageController',function($scope,$rootScope)
         $scope.ccsavehide = false;
         $scope.savecc = false;
         
-        $scope.byop = false;
         $scope.byop = false;
         
         $scope.esnshow = false;
@@ -187,7 +197,24 @@ minionModule.controller('GuageController',function($scope,$rootScope)
         }
     }
 
-	
+	$scope.enrollClick = function(){
+        $scope.updateCCSaveBtn();
+        if($scope.autoenroll){
+            var discamt = $scope.refillDataDisc*$scope.dataCost;
+            $scope.discount.push({"data":discamt});
+            $scope.dataValue = $scope.dataValue+1;
+
+        }else{
+            $scope.dataValue = $scope.dataValue-1;
+            $scope.discount=[];
+        }
+        $scope.calc();
+//        $('#gauge2').jqxGauge('value', $('#dataValueId').val());
+//        $('#slider2').jqxSlider('value',$('#dataValueId').val());
+//        $scope.calc();
+//        $scope.$digest();
+        
+    }
     
     $scope.updateCCSaveBtn = function(){
         $scope.ccsavehide = $scope.autoenroll;
@@ -204,11 +231,16 @@ minionModule.controller('GuageController',function($scope,$rootScope)
 	}
 	
 	$scope.calc = function(){
-		$scope._charges = $scope.minuteValue*0.15+$scope.textValue*0.01+$scope.dataValue*5;
-		$scope.charges = sprintf("%10.2f", $scope.minuteValue*0.15+$scope.textValue*0.01+$scope.dataValue*5);
+		$scope._charges = $scope.minuteValue*0.15+$scope.textValue*0.01+$scope.dataValue*$scope.dataCost;
+		$scope.charges = sprintf("%10.2f", $scope.minuteValue*0.15+$scope.textValue*0.01+$scope.dataValue*$scope.dataCost);
+        if($scope.discount.length>0){
+            $scope.totalDisc = $scope.discount[0].data;
+        }else{
+            $scope.totalDisc = 0;
+        }
 		$scope.tax = sprintf("%10.2f", 3.45);
 		$scope._tax = 3.45;
-		$scope.total = sprintf("%10.2f", $scope._charges+$scope._tax);
+		$scope.total = sprintf("%10.2f", $scope._charges+$scope._tax-$scope.totalDisc);
 	};
 	
 	$scope.next = function(){
